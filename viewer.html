@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<title>M</title>
+<style>
+*{margin:0;padding:0}
+html,body{width:100%;height:100%;overflow:hidden;background:#000;position:fixed}
+#s{width:100%;height:100%;object-fit:contain;display:block}
+</style>
+</head>
+<body>
+<img id="s">
+<script>
+const s=document.getElementById('s');
+let w;
+function c(){
+w=new WebSocket('ws://'+location.host+'/ws');
+w.binaryType='blob';
+w.onmessage=e=>{
+const u=URL.createObjectURL(e.data);
+const o=s.src;
+s.src=u;
+if(o.startsWith('blob:'))URL.revokeObjectURL(o);
+};
+w.onerror=()=>setTimeout(c,1000);
+w.onclose=()=>setTimeout(c,1000);
+}
+c();
+document.addEventListener('contextmenu',e=>e.preventDefault());
+</script>
+</body>
+</html>
