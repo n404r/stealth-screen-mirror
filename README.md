@@ -48,8 +48,6 @@ High-performance, ultra-low-latency screen mirroring tool with advanced stealth 
 
 ### Examples:
 
-![ss1](https://github.com/user-attachments/assets/e864b3d7-891c-4ba5-8a68-31ea632a1fb6)
-
 ```powershell
 # Default settings
 .\mirror.exe start
@@ -337,4 +335,5 @@ This is an educational project. Contributions welcome for:
 ---
 
 **Built with Go. Optimized for stealth. Made for education.** 🚀
+
 
